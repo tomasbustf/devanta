@@ -1,0 +1,24 @@
+<section id="servicios">
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="section-tag">Servicios</div>
+        <h2 class="section-title">Lo que<br><span class="accent">construimos</span></h2>
+      </div>
+      <p class="section-sub">Soluciones end-to-end diseñadas para organizaciones que no quieren limitarse. Cada proyecto
+        es una arquitectura pensada para crecer.</p>
+    </div>
+
+    <div class="grid reveal">
+      <div class="card" *ngFor="let s of services">
+        <div class="card-num">{{ s.num }}</div>
+        <div class="card-icon" [innerHTML]="icons[s.icon]"></div>
+        <div class="card-name">{{ s.name }}</div>
+        <div class="card-desc">{{ s.desc }}</div>
+        <div class="card-tags">
+          <span class="tag" *ngFor="let t of s.tags">{{ t }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<nav [class.scrolled]="scrolled">
+  <div class="nav-inner">
+    <div class="nav-logo" (click)="scrollTo('hero')">
+      <img src="assets/images/logos/DEVANTA-WHITE.png" alt="Devanta"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <span class="logo-text" style="display:none">DEV<span class="accent">ANTA</span></span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a (click)="scrollTo('servicios')">Servicios</a></li>
+      <li><a (click)="scrollTo('trabajos')">Trabajos</a></li>
+      <li><a (click)="scrollTo('proceso')">Proceso</a></li>
+      <li><a (click)="scrollTo('precios')">Precios</a></li>
+      <li><a (click)="scrollTo('equipo')">Equipo</a></li>
+    </ul>
+
+    <button class="nav-cta" (click)="scrollTo('contacto')">Agendar llamada</button>
+
+    <button class="hamburger" (click)="mobileOpen = !mobileOpen" [class.open]="mobileOpen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" [class.open]="mobileOpen">
+    <a (click)="scrollTo('servicios')">Servicios</a>
+    <a (click)="scrollTo('trabajos')">Trabajos</a>
+    <a (click)="scrollTo('proceso')">Proceso</a>
+    <a (click)="scrollTo('precios')">Precios</a>
+    <a (click)="scrollTo('equipo')">Equipo</a>
+    <a (click)="scrollTo('contacto')" class="mobile-cta">Agendar llamada →</a>
+  </div>
+</nav>

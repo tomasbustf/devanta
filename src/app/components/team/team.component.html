@@ -1,0 +1,26 @@
+<section id="equipo">
+  <div class="container">
+    <div class="header reveal">
+      <div>
+        <div class="section-tag">Equipo</div>
+        <h2 class="section-title">Las personas<br><span class="accent">detrás del código</span></h2>
+      </div>
+      <!-- <p class="section-sub">Ingenieros, diseñadores y estrategas que se toman en serio cada proyecto. Sin juniors, sin
+        outsourcing oculto.</p> -->
+    </div>
+
+    <div class="grid reveal">
+      <div class="card" *ngFor="let m of members">
+        <div class="avatar" [style.background]="m.imageUrl ? 'none' : m.gradient">
+          <img *ngIf="m.imageUrl" [src]="m.imageUrl" [alt]="m.name" class="avatar-img" />
+          <span *ngIf="!m.imageUrl">{{ m.initials }}</span>
+        </div>
+        <div class="info">
+          <div class="name">{{ m.name }}</div>
+          <div class="role">{{ m.role }}</div>
+          <div class="bio">{{ m.bio }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

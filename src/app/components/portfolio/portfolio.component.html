@@ -1,0 +1,90 @@
+<section id="trabajos">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header reveal">
+      <div>
+        <div class="section-tag">Trabajos</div>
+        <h2 class="section-title">Proyectos que<br><span class="accent">hablan solos</span></h2>
+      </div>
+      <p class="section-sub">Selección de soluciones que hemos construido para organizaciones que apostaron por
+        tecnología de calidad.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters reveal">
+      <button *ngFor="let f of filters" class="filter-btn" [class.active]="activeFilter === f.key"
+        (click)="applyFilter(f.key)">
+        {{ f.label }}
+      </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid" *ngIf="filtered.length > 0">
+      <div class="card reveal" *ngFor="let p of filtered" (click)="openProject(p)">
+
+        <!-- Thumbnail -->
+        <div class="card-thumb">
+          <img *ngIf="p.imageUrl" [src]="p.imageUrl" [alt]="p.title">
+          <div *ngIf="!p.imageUrl" class="thumb-fallback" [style.background]="getGradient(p)">
+            <span class="thumb-initials">{{ getInitials(p.title) }}</span>
+          </div>
+          <div class="card-overlay">
+            <span class="overlay-text">Ver proyecto →</span>
+          </div>
+          <div class="card-cat">{{ categoryLabels[p.category] }}</div>
+          <div class="card-year">{{ p.year }}</div>
+        </div>
+
+        <!-- Info -->
+        <div class="card-body">
+          <div class="card-client">{{ p.client }}</div>
+          <div class="card-title">{{ p.title }}</div>
+          <div class="card-tags">
+            <span class="tag" *ngFor="let t of p.tags.slice(0,3)">{{ t }}</span>
+            <span class="tag muted" *ngIf="p.tags.length > 3">+{{ p.tags.length - 3 }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty" *ngIf="filtered.length === 0">
+      <div class="empty-icon">◯</div>
+      <p>No hay proyectos en esta categoría todavía.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── MODAL ─── -->
+<div class="modal-backdrop" [class.open]="selectedProject" (click)="closeProject()">
+  <div class="modal" (click)="$event.stopPropagation()" *ngIf="selectedProject">
+    <button class="modal-close" (click)="closeProject()">✕</button>
+
+    <div class="modal-thumb">
+      <img *ngIf="selectedProject.imageUrl" [src]="selectedProject.imageUrl" [alt]="selectedProject.title">
+      <div *ngIf="!selectedProject.imageUrl" class="thumb-fallback large"
+        [style.background]="getGradient(selectedProject)">
+        <span class="thumb-initials">{{ getInitials(selectedProject.title) }}</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-meta">
+        <span class="modal-cat">{{ categoryLabels[selectedProject.category] }}</span>
+        <span class="modal-year">{{ selectedProject.year }}</span>
+      </div>
+      <div class="modal-client">{{ selectedProject.client }}</div>
+      <h3 class="modal-title">{{ selectedProject.title }}</h3>
+      <p class="modal-desc">{{ selectedProject.description }}</p>
+      <div class="modal-tags">
+        <span class="tag" *ngFor="let t of selectedProject.tags">{{ t }}</span>
+      </div>
+      <a *ngIf="selectedProject.liveUrl" [href]="selectedProject.liveUrl" target="_blank" rel="noopener"
+        class="btn-primary modal-link">
+        Ver proyecto →
+      </a>
+    </div>
+  </div>
+</div>

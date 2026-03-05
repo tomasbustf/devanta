@@ -1,0 +1,151 @@
+// ─── CSS VARIABLES ───
+:root {
+  --purple: #803ac4;
+  --lavender: #bd98e0;
+  --deep: #2c1443;
+  --muted: #8c849c;
+  --light: #c2bec6;
+  --black: #0a060f;
+  --white: #f5f2fa;
+}
+
+// ─── RESET ───
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
+
+// ─── SHARED UTILITIES ───
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+}
+
+section {
+  padding: 120px 0;
+
+  @media (max-width: 768px) {
+    padding: 72px 0;
+  }
+}
+
+.section-tag {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+
+  .accent { color: var(--lavender); }
+}
+
+.section-sub {
+  font-size: 17px;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(128,58,196,0.4), transparent);
+}
+
+// ─── BUTTONS ───
+.btn-primary {
+  display: inline-block;
+  background: var(--purple);
+  color: var(--white);
+  padding: 15px 34px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #9b4fe0;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(128,58,196,0.4);
+  }
+}
+
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: var(--light);
+  padding: 15px 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(194,190,198,0.2);
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--lavender);
+    color: var(--lavender);
+  }
+}
+
+// ─── REVEAL ANIMATION ───
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ─── TAG CHIP ───
+.tag {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(128,58,196,0.12);
+  color: var(--lavender);
+  border: 1px solid rgba(128,58,196,0.2);
+}

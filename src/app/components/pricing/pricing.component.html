@@ -1,0 +1,32 @@
+<section id="precios">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-tag">Precios</div>
+      <h2 class="section-title">Soluciones para tu<span class="accent"> proyecto</span></h2>
+
+    </div>
+
+    <div class="grid reveal">
+      <div class="card" *ngFor="let p of plans" [class.featured]="p.featured">
+        <div class="plan-name">{{ p.name }}</div>
+        <div class="plan-desc" *ngIf="p.desc">{{ p.desc }}</div>
+        <div class="plan-price">
+          <span class="from" *ngIf="p.from">desde </span>{{ p.price }}
+        </div>
+        <div class="plan-period">{{ p.period }}</div>
+        <hr>
+        <ul>
+          <li *ngFor="let f of p.features" [class.off]="!f.included">
+            <span class="check">{{ f.included ? '✓' : '–' }}</span>
+            {{ f.text }}
+          </li>
+        </ul>
+        <button class="plan-btn" [class.filled]="p.featured" (click)="scrollTo('contacto')">
+          {{ p.name === 'Enterprise' ? 'Hablemos' : 'Solicitar propuesta' }}
+        </button>
+      </div>
+    </div>
+
+    <p class="footnote reveal"></p>
+  </div>
+</section>
