@@ -7,7 +7,7 @@
     </div>
 
     <div class="grid reveal">
-      <div class="card" *ngFor="let p of plans" [class.featured]="p.featured">
+      <div class="card" *ngFor="let p of plans" [class.featured]="p.featured" [class.oferta]="p.oferta">
         <div class="plan-name">{{ p.name }}</div>
         <div class="plan-desc" *ngIf="p.desc">{{ p.desc }}</div>
         <div class="plan-price">
@@ -21,6 +21,8 @@
             {{ f.text }}
           </li>
         </ul>
+
+
         <button class="plan-btn" [class.filled]="p.featured" (click)="scrollTo('contacto')">
           {{ p.name === 'Enterprise' ? 'Hablemos' : 'Solicitar propuesta' }}
         </button>

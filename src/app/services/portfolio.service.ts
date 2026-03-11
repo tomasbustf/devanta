@@ -28,7 +28,7 @@ export class PortfolioService {
       client: 'Fundación Hernan Quintanilla',
       category: 'web',
       description: 'Pagina web para la fundación Hernan Quintanilla, con el objetivo de dar a conocer sus actividades, proyectos, historia y preservar el legado de Hernan Quintanilla Mendez.',
-      tags: ['Angular', 'Node.js', 'PostgreSQL', 'AWS', 'WebSockets'],
+      tags: ['Angular'],
       imageUrl: 'assets/images/fundacion-hernan-quintanilla.png',
       imageColor: '#2c1443',
       liveUrl: 'https://fundacionhernanquintanilla.cl',

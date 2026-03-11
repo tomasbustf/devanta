@@ -13,8 +13,12 @@ section {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  @media (max-width:1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @media (max-width:900px) {
     grid-template-columns: 1fr;
@@ -25,7 +29,7 @@ section {
 
 .card {
   border-radius: 16px;
-  padding: 44px 34px;
+  padding: 32px 20px;
   border: 1px solid rgba(128, 58, 196, 0.15);
   background: rgba(44, 20, 67, 0.18);
   position: relative;
@@ -44,8 +48,28 @@ section {
     &::after {
       content: 'MÁS POPULAR';
       position: absolute;
+      top: 30px;
+      right: -44px;
+      background: var(--purple);
+      color: var(--white);
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 6px 40px;
+      transform: rotate(45deg);
+    }
+  }
+
+  &.oferta {
+    border-color: var(--purple);
+    background: rgba(128, 58, 196, 0.1);
+  
+    &::after {
+      content: 'OFERTA';
+      position: absolute;
       top: 22px;
-      right: -28px;
+      right: -35px;
       background: var(--purple);
       color: var(--white);
       font-family: 'Syne', sans-serif;
@@ -57,6 +81,13 @@ section {
     }
   }
 }
+
+
+
+
+
+
+
 
 .plan-name {
   font-family: 'Syne', sans-serif;
@@ -77,13 +108,13 @@ section {
 
 .plan-price {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(30px, 8vw, 40px);
+  font-size: clamp(24px, 5vw, 32px);
   font-weight: 800;
   line-height: 1;
   margin-bottom: 6px;
 
   .from {
-    font-size: 16px;
+    font-size: 13px;
     color: var(--muted);
     font-weight: 400;
   }
@@ -111,8 +142,8 @@ ul {
 
 li {
   display: flex;
-  gap: 11px;
-  font-size: 14px;
+  gap: 8px;
+  font-size: 13px;
   color: var(--light);
   align-items: flex-start;
 
